@@ -5,8 +5,8 @@ using namespace std;
 template<typename T>
 List<T>::List()//конструктор по умолчанию
 {
-	::Size = 0;//начальный размер списка
-	::head = nullptr;//первоначально указывает на ноль
+	::Size = 0;//начальный размер списка //global space :: добавлен мной
+	::head = nullptr;//первоначально указывает на ноль //global space :: добавлен мной
 };
 
 template<typename T>
@@ -18,7 +18,7 @@ List<T>::~List() //деструктор класcа List
 template<typename T> 
 void List<T>::push_back(T data)//метод добавления данных, имя метода по типу как в стандартной бибилиотеке 
 {
-	if (::head == nullptr) //если указатель пустой
+	if (::head == nullptr) //если указатель пустой //global space :: добавлен мной
 	{
 		::head = new Node<T>(data); //создать новый эл-т Node и передать ему в конструктор данные
 	}                             //head будет указывать на новую ноду в динамической памяти - объект класса Node 
