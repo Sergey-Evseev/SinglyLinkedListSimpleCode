@@ -3,10 +3,10 @@
 using namespace std;
 
 template<typename T>
-List<T>::List()
+List<T>::List()//конструктор по умолчанию
 {
-	Size = 0;//начальный размер списка
-	head = nullptr;//первоначально указывает на ноль
+	::Size = 0;//начальный размер списка
+	::head = nullptr;//первоначально указывает на ноль
 };
 
 template<typename T>
@@ -16,11 +16,11 @@ List<T>::~List() //деструктор класcа List
 };
 
 template<typename T> 
-void List<T>:: push_back(T data)//метод добавления данных, имя метода по типу как в стандартной бибилиотеке 
+void List<T>::push_back(T data)//метод добавления данных, имя метода по типу как в стандартной бибилиотеке 
 {
-	if (head == nullptr) //если указатель пустой
+	if (::head == nullptr) //если указатель пустой
 	{
-		head = new Node<T>(data); //создать новый эл-т Node и передать ему в конструктор данные
+		::head = new Node<T>(data); //создать новый эл-т Node и передать ему в конструктор данные
 	}                             //head будет указывать на новую ноду в динамической памяти - объект класса Node 
 	else
 	{
@@ -32,8 +32,9 @@ void List<T>:: push_back(T data)//метод добавления данных, имя метода по типу ка
 		}
 		current->pNext = new Node<T>(data);//переменной pNext последнего (с нул. адресом) элемента присваиваем значение новой ноды
 	}
-	Size++; //при каждом добавлении элемента увеличивать переменную Size
+	::Size++; //при каждом добавлении элемента увеличивать переменную Size
 }
+
 template<typename T>
 T & List<T>::operator[](const int index)
 {
@@ -43,7 +44,7 @@ T & List<T>::operator[](const int index)
 	{
 		if (counter == index)//если счетчик совпадает с номер запрошенного элемента 
 		{ 
-			return current->data //то вернуть значение его поля data
+			return current->data; //то вернуть значение его поля data
 		}
 		current = current->pNext; //пока current не станет указывать на null присваивать текущему адрес следующего
 		counter++;
