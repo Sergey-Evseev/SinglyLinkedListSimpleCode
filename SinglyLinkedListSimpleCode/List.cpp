@@ -36,7 +36,7 @@ void List<T>::push_back(T data)//метод добавления данных, имя метода по типу как
 }
 
 template<typename T>
-T & List<T>::operator[](const int index)
+T & List<T>::operator[](const int index)//перегрузка оператор [] для вывода значений
 {
 	int counter = 0; //счетчик в каком элементе мы находимся
 	Node<T> *current = this->head;//переменная для проверки следующего элемента
