@@ -14,7 +14,8 @@ List<T>::List()
 //деструктор класcа List//
 template<typename T>
 List<T>::~List() 
-{
+{	
+	clear();
 	cout << "Destructor" << endl;
 };
 

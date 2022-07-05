@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "List.h"
+#include "List.cpp"
 using namespace std;
 
 int main()
@@ -15,11 +16,12 @@ int main()
 
 
 	cout << "Кол-во элементов: " << lst.GetSize() << endl; //у списка можем вызвать геттер и посмотреть кол-во элементов
-	cout << lst[2] << endl; //вывод значения элемента по его индексу через перегруженный оператор []
-	cout << "Метод pop_front" << endl;
+	cout << "Вывод элемента № 3: " << lst[2] << endl; //вывод значения элемента по его индексу через перегруженный оператор []
+	cout << "Метод pop_front - удаление одного первого элемента" << endl;
 	lst.pop_front(); //удаление первого элемента списка
 
 	int numbersCount; //переменная размеров списка для заполнения случай. значениями
+	cout << "Введите количество элементов списка:" << endl;
 	cin >> numbersCount;
 	for (int i = 0; i < numbersCount; i++)//заполнение списка на numbersCount элементов 
 	{
@@ -28,10 +30,11 @@ int main()
 
 	for (int i = 0; i < lst.GetSize(); i++)//вывод всех элементов списка
 	{
-		cout << lst[i] << endl;
-	}
+		cout << lst[i] << " ";
+	} cout << endl;
 
-	lst.clear(); //удаление всех элемениов списка
+	lst.clear(); //удаление всех элементов списка 
+				 //либо включаем вызов clear() в деструктор и он будет удалять автоматически
 
 	return 0;
 };
