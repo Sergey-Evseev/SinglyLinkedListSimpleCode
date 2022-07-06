@@ -26,7 +26,7 @@ int main()
 	int numbersCount; //переменная размеров списка для заполнения случай. значениями
 	cout << "Введите количество элементов списка:" << endl;
 	cin >> numbersCount;
-	for (int i = 0; i < numbersCount; i++)//заполнение списка на numbersCount элементов 
+	for (int i = 0; i < numbersCount; i++)//заполнение (добавление к существующим элементам) списка на numbersCount элементов 
 	{
 		lst.push_back(rand()%10);
 	}
@@ -38,8 +38,8 @@ int main()
 
 	cout << "Добавление элемента с помощью insert" << endl;
 	lst.insert(99, 1);
-
 	lst.printList();
+		
 	lst.clear(); //удаление всех элементов списка, либо включаем вызов clear() в деструктор и он будет удалять автоматически
 	
 	return 0;

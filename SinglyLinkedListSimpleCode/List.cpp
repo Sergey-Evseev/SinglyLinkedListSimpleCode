@@ -110,14 +110,23 @@ T & List<T>::operator[](const int index)
 	}
 }
 
+//вывод всех элементов списка//НЕ ПЕЧАТАЕТ ПЕРВЫЙ ЭЛЕМЕНТ
+//template<typename T>
+//void List<T>::printList()
+//{	
+//	Node<T> *temp = head;
+//	while(temp->pNext != NULL)  
+//	{		
+//		cout << temp->data << " ";
+//		temp = temp->pNext;
+//	}; cout << endl;	
+//}
 
-template<typename T>
-void List<T>::printList()
-{
-	for (int i = 0; i < this->GetSize(); i++)
-	{
-		cout << this->head->data << " ";
-		head = head->pNext;
-
-	}; //вывод всех элементов списка
-}
+//template<typename T>
+//void List<T>::printList()
+//{	
+//		{
+//		cout << head->data << " ";
+//		head = head->pNext;
+//	}; cout << endl;
+//}
