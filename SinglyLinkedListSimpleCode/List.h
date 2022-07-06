@@ -21,6 +21,8 @@ public:
 	int GetSize() { 
 		return Size;}; //геттер Size поскольку она в private секции 
 	T& operator[](const int index);//перегрузка оператора [] для получения значений элементов, ссылка для того чтобы также изменять элемент
+	void printList(); 
+
 
 private:
 

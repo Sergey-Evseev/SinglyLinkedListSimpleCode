@@ -109,3 +109,15 @@ T & List<T>::operator[](const int index)
 		counter++;
 	}
 }
+
+
+template<typename T>
+void List<T>::printList()
+{
+	for (int i = 0; i < this->GetSize(); i++)
+	{
+		cout << this->head->data << " ";
+		head = head->pNext;
+
+	}; //вывод всех элементов списка
+}
