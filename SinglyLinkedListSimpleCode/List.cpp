@@ -96,7 +96,7 @@ void List<T>::insert(T data, int index)
 		Size++; //push_front уже содержит итератор Size 
 	}
 }
-
+//удаление последнего элемента списка //
 template<typename T>
 void List<T>::pop_back()
 {
