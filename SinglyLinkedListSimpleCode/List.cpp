@@ -89,6 +89,10 @@ void List<T>::insert(T data, int index)
 		Node<T> *newNode = new Node<T>(data, previous->pNext); //создаем нов. объект типа Node, передаем ему в конструктор данные 
 		//и у предыд. эл-та берем (принимаем) поле pNext,теперь наш объект будет ссылатьс€ на кот. указывал предыдущий
 		previous->pNext = newNode; //предыдущему присваиваем адрес нового (newNode у нас указатель)
+
+		//либо без объ€влени€ новой переменной *newMode:
+		//previous->pNext = new Node<T>(data, previous->pNext); - предыдущему указателю (€чейке) присвоить новые значени€
+
 		Size++; //push_front уже содержит итератор Size 
 	}
 }
@@ -110,23 +114,16 @@ T & List<T>::operator[](const int index)
 	}
 }
 
-//вывод всех элементов списка//Ќ≈ ѕ≈„ј“ј≈“ ѕ≈–¬џ… ЁЋ≈ћ≈Ќ“
-//template<typename T>
-//void List<T>::printList()
-//{	
-//	Node<T> *temp = head;
-//	while(temp->pNext != NULL)  
-//	{		
-//		cout << temp->data << " ";
-//		temp = temp->pNext;
-//	}; cout << endl;	
-//}
+//вывод всех элементов списка//
+template<typename T>
+void List<T>::printList()
+{	
+	Node<T> *temp = new Node <T>;//выдел€ем пам€ть под врем. переменную Node и присваиваем ее указателю
+			temp = head; //присваиваем этому указателю адрес головы списка
 
-//template<typename T>
-//void List<T>::printList()
-//{	
-//		{
-//		cout << head->data << " ";
-//		head = head->pNext;
-//	}; cout << endl;
-//}
+	for (int i=0; i<GetSize(); i++)
+	{
+		cout << temp->data << " ";
+		temp = temp->pNext;
+	}; cout << endl;
+}
