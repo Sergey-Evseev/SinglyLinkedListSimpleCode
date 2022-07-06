@@ -97,6 +97,29 @@ void List<T>::insert(T data, int index)
 	}
 }
 
+template<typename T>
+void List<T>::removeAt(int index)
+{
+	if (index == 0) //если элемент первый использовать метод pop_front
+	{
+		pop_front();
+	}
+	else
+	{
+		Node<T> *previous = this->head; //создаем элемент указывающий на голову
+		for (int i = 0; i < index - 1; i++)
+		{
+			previous = previous->pNext; //ищем предшествующий удаляемому элемент
+		}
+		Node<T> *toDelete = previous->pNext;//запоминаем в указателе адрес который ссылался на удаляемый элемент
+		previous->pNext = toDelete->pNext; //перенаправляем указ. предыдущего на следующий
+		delete toDelete; //удаляем удаляемый элемент по ссылке ранее созданной
+		Size--;
+	}
+
+
+}
+
 //перегрузка оператор [] для вывода значений//
 template<typename T>
 T & List<T>::operator[](const int index)

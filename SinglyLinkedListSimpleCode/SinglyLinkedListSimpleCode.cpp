@@ -40,8 +40,9 @@ int main()
 	lst.insert(99, 1);
 	cout << lst.GetSize() << endl;
 	lst.printList(); //вывод списка с помощью функции
-		
+	lst.removeAt(5); //удаление 6-го элемента
+	lst.printList();
 	lst.clear(); //удаление всех элементов списка, либо включаем вызов clear() в деструктор и он будет удалять автоматически
-	
+	lst.printList();
 	return 0;
 };
