@@ -98,6 +98,12 @@ void List<T>::insert(T data, int index)
 }
 
 template<typename T>
+void List<T>::pop_back()
+{
+	removeAt(Size-1)//удаление по индексу последнего элемента, учитывая начало списка с 0
+}
+
+template<typename T>
 void List<T>::removeAt(int index)
 {
 	if (index == 0) //если элемент первый использовать метод pop_front
