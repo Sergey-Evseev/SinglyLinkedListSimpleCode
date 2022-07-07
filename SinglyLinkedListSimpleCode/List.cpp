@@ -7,10 +7,9 @@ using namespace std;
 template<typename T>
 List<T>::List()
 {
-	Size = 0;//начальный размер списка //global space :: добавлен мной
-	head = nullptr;//первоначально указывает на ноль //global space :: добавлен мной
+	Size = 0;//начальный размер списка //
+	head = nullptr;//первоначально указывает на ноль //
 };
-
 //деструктор класcа List//
 template<typename T>
 List<T>::~List() 
@@ -35,7 +34,7 @@ void List<T>::push_back(T data)
 		{
 			current = current->pNext; //если заголовок на след.эл-т не указывает на нуль, врем. переменной (адресу) присваиваем значение следующего
 		}
-		current->pNext = new Node<T>(data);//переменной pNext последнего (с нул. адресом) элемента присваиваем значение новой ноды
+		current->pNext = new Node<T>(data);//переменной pNext последнего (с нул. адресом в заголовке) элемента присваиваем значение новой ноды
 	}
 	Size++; //при каждом добавлении элемента увеличивать переменную Size
 }
@@ -100,9 +99,9 @@ void List<T>::insert(T data, int index)
 template<typename T>
 void List<T>::pop_back()
 {
-	removeAt(Size-1)//удаление по индексу последнего элемента, учитывая начало списка с 0
+	removeAt(Size - 1);//удаление по индексу последнего элемента, учитывая начало списка с 0
 }
-
+//удаление элемента по индексу//
 template<typename T>
 void List<T>::removeAt(int index)
 {
@@ -134,7 +133,7 @@ T & List<T>::operator[](const int index)
 	Node<T> *current = this->head;//переменная для проверки следующего элемента
 	while (current != nullptr)
 	{
-		if (counter == index)//если счетчик совпадает с номер запрошенного элемента 
+		if (counter == index)//если счетчик совпадает с порядковым номером запрошенного элемента 
 		{ 
 			return current->data; //то вернуть значение его поля data
 		}
@@ -152,7 +151,7 @@ void List<T>::printList()
 
 	for (int i=0; i<GetSize(); i++)
 	{
-		cout << temp->data << " ";
-		temp = temp->pNext;
+		cout << temp->data << " "; //выводим поле data текущего элемента
+		temp = temp->pNext; //переходим к следующему (присваиваем указатель на следующий элемент)
 	}; cout << endl;
 }
